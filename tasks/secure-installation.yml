@@ -1,4 +1,9 @@
 ---
+- name: Get list of hosts for the root user.
+  command: mysql -NBe 'SELECT Host FROM mysql.user WHERE User = "root" ORDER BY (Host="localhost") ASC'
+  register: mysql_root_hosts
+  changed_when: false
+  
 # Note: We do not use mysql_user for this operation, as it doesn't always update
 # the root password correctly. See: https://goo.gl/MSOejW
 - name: Update MySQL root password for localhost root account.

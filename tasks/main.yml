@@ -36,4 +36,3 @@
 
 # Configure MySQL.
 - include: configure.yml
-- include: secure-installation.yml
